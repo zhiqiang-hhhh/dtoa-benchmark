@@ -19,9 +19,10 @@ endif()
 string(TOUPPER ${CMAKE_BUILD_TYPE} CMAKE_BUILD_TYPE_UPPERCASE)
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
+add_subdirectory("${PROJECT_SOURCE_DIR}/src/dragonbox")
 
 set(SOURCES
-  src/stb_test.cpp src/stb/stb_sprintf.h
+  # src/stb_test.cpp src/stb/stb_sprintf.h
 
   src/double-conversion/bignum.cc
   src/double-conversion/bignum-dtoa.cc
@@ -45,105 +46,89 @@ set(SOURCES
   src/double-conversion/utils.h
   src/doubleconvtest.cpp
 
-  src/emyg/emyg_dtoa.c
-  src/emyg/emyg_dtoa.h
-  src/emygtest.cpp
+  # src/emyg/emyg_dtoa.c
+  # src/emyg/emyg_dtoa.h
+  # src/emygtest.cpp
 
-  src/erthink/erthink.h
-  src/erthink/erthink_arch.h
-  src/erthink/erthink_bswap.h
-  src/erthink/erthink_byteorder.h
-  src/erthink/erthink_carryadd.h
-  src/erthink/erthink_clz.h
-  src/erthink/erthink_d2a.h
-  src/erthink/erthink_defs.h
-  src/erthink/erthink_intrin.h
-  src/erthink/erthink_misc.h
-  src/erthink/erthink_mul.h
-  src/erthink/erthink_rot.h
-  src/erthink/erthink_u2a.h
-  src/erthink_test.cpp
+  # src/ryu/common.h
+  # src/ryu/d2fixed.c
+  # src/ryu/d2fixed_full_table.h
+  # src/ryu/d2s.c
+  # src/ryu/d2s_full_table.h
+  # src/ryu/d2s_intrinsics.h
+  # src/ryu/d2s_small_table.h
+  # src/ryu/digit_table.h
+  # src/ryu/f2s.c
+  # src/ryu/f2s_full_table.h
+  # src/ryu/generic_128.c
+  # src/ryu/generic_128.h
+  # src/ryu/ryu_generic_128.h
+  # src/ryu/ryu.h
+  # src/ryu/ryu_parse.h
+  # src/ryu/s2d.c
+  # src/ryu_test.cpp
 
-  src/ryu/common.h
-  src/ryu/d2fixed.c
-  src/ryu/d2fixed_full_table.h
-  src/ryu/d2s.c
-  src/ryu/d2s_full_table.h
-  src/ryu/d2s_intrinsics.h
-  src/ryu/d2s_small_table.h
-  src/ryu/digit_table.h
-  src/ryu/f2s.c
-  src/ryu/f2s_full_table.h
-  src/ryu/generic_128.c
-  src/ryu/generic_128.h
-  src/ryu/ryu_generic_128.h
-  src/ryu/ryu.h
-  src/ryu/ryu_parse.h
-  src/ryu/s2d.c
-  src/ryu_test.cpp
+  # src/floaxie/atof.h
+  # src/floaxie/bit_ops.h
+  # src/floaxie/cached_power.h
+  # src/floaxie/conversion_status.h
+  # src/floaxie/default_fallback.h
+  # src/floaxie/diy_fp.h
+  # src/floaxie/fraction.h
+  # src/floaxie/ftoa.h
+  # src/floaxie/grisu.h
+  # src/floaxie/huge_val.h
+  # src/floaxie/integer_of_size.h
+  # src/floaxie/k_comp.h
+  # src/floaxie/krosh.h
+  # src/floaxie/memwrap.h
+  # src/floaxie/powers_ten.h
+  # src/floaxie/powers_ten_double.h
+  # src/floaxie/powers_ten_single.h
+  # src/floaxie/prettify.h
+  # src/floaxie/print.h
+  # src/floaxie/static_pow.h
+  # src/floaxie/type_punning_cast.h
+  # src/floaxietest.cpp
 
-  src/floaxie/atof.h
-  src/floaxie/bit_ops.h
-  src/floaxie/cached_power.h
-  src/floaxie/conversion_status.h
-  src/floaxie/default_fallback.h
-  src/floaxie/diy_fp.h
-  src/floaxie/fraction.h
-  src/floaxie/ftoa.h
-  src/floaxie/grisu.h
-  src/floaxie/huge_val.h
-  src/floaxie/integer_of_size.h
-  src/floaxie/k_comp.h
-  src/floaxie/krosh.h
-  src/floaxie/memwrap.h
-  src/floaxie/powers_ten.h
-  src/floaxie/powers_ten_double.h
-  src/floaxie/powers_ten_single.h
-  src/floaxie/prettify.h
-  src/floaxie/print.h
-  src/floaxie/static_pow.h
-  src/floaxie/type_punning_cast.h
-  src/floaxietest.cpp
-
-  src/fmt/chrono.h
-  src/fmt/color.h
-  src/fmt/compile.h
-  src/fmt/core.h
-  src/fmt/format.h
-  src/fmt/format-inl.h
-  src/fmt/locale.h
-  src/fmt/os.h
-  src/fmt/ostream.h
-  src/fmt/posix.h
-  src/fmt/printf.h
-  src/fmt/ranges.h
-  src/fmt/format.cc
-  src/fmt/os.cc
+  src/fmt/include/fmt/chrono.h
+  src/fmt/include/fmt/color.h
+  src/fmt/include/fmt/compile.h
+  src/fmt/include/fmt/core.h
+  src/fmt/include/fmt/format.h
+  src/fmt/include/fmt/format-inl.h
+  src/fmt/include/fmt/os.h
+  src/fmt/include/fmt/ostream.h
+  src/fmt/include/fmt/printf.h
+  src/fmt/include/fmt/ranges.h
   src/fmttest.cpp
+  src/fmt_full_cache_test.cpp
 
-  src/fpconv/fpconv.c
-  src/fpconv/fpconv.h
-  src/fpconv/license
-  src/fpconv/powers.h
-  src/fpconvtest.cpp
+  # src/fpconv/fpconv.c
+  # src/fpconv/fpconv.h
+  # src/fpconv/license
+  # src/fpconv/powers.h
+  # src/fpconvtest.cpp
 
-  src/gay/dtoa.c
-  src/gay/g_fmt.c
-  src/gaytest.cpp
+  # src/gay/dtoa.c
+  # src/gay/g_fmt.c
+  # src/gaytest.cpp
 
-  src/grisu/diy_fp.h
-  src/grisu/double.h
-  src/grisu/fast_exponent.h
-  src/grisu/grisu2.h
-  src/grisu/grisu2b_59_56.c
-  src/grisu/k_comp.h
-  src/grisu/powers.h
-  src/grisu/powers_ten_round64.h
-  src/grisu/prettify.h
-  src/grisu2btest.cpp
+  # src/grisu/diy_fp.h
+  # src/grisu/double.h
+  # src/grisu/fast_exponent.h
+  # src/grisu/grisu2.h
+  # src/grisu/grisu2b_59_56.c
+  # src/grisu/k_comp.h
+  # src/grisu/powers.h
+  # src/grisu/powers_ten_round64.h
+  # src/grisu/prettify.h
+  # src/grisu2btest.cpp
 
-  src/milo/dtoa_milo.h src/milotest.cpp
-  src/msinttypes/inttypes.h src/msinttypes/stdint.h
+  src/dragonbox_test.cpp
+
+  # src/milo/dtoa_milo.h src/milotest.cpp
+  # src/msinttypes/inttypes.h src/msinttypes/stdint.h
 
   src/ostringstream.cpp
   src/ostrstream.cpp
@@ -157,6 +142,7 @@ set(SOURCES
   )
 
 add_executable(d2a-benchmark ${SOURCES})
+target_link_libraries(d2a-benchmark PRIVATE dragonbox_to_chars)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   target_compile_definitions(d2a-benchmark PRIVATE _CRT_SECURE_NO_WARNINGS)
