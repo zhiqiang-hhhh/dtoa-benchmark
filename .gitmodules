@@ -1,0 +1,3 @@
+[submodule "src/dragonbox"]
+	path = src/dragonbox
+	url = https://github.com/jk-jeon/dragonbox.git
